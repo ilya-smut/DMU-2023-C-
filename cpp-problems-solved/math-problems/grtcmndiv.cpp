@@ -27,7 +27,13 @@ int main()
 
     if (!equal) {
 
-        for (int i = num2; i > 0; i--){
+        for (int i = num2 / 2; i > 0; i--){
+
+            if (num1 % num2 == 0){
+                result = num2;
+                break;
+            }
+
             if (num2 % i == 0 && num1 % i == 0){
                 result  = i;
                 break;
