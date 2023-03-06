@@ -43,11 +43,7 @@ int numOfWords(string str, int length){
     return numwords;
 }
 
-string* getList(string str){
-
-    // Getting number of words and the length of the string
-    int length = getLength(str);
-    int numwords = numOfWords(str, length);
+string* getList(string str, int length, int numwords){
 
     // initialising list that will be returned
     string* final_list;
@@ -82,9 +78,13 @@ int main(){
     string str = getString();
     int length = getLength(str);
     int size = numOfWords(str, length);
-    string *ptr = getList(str);
+    string *ptr = getList(str, length, size);
+
     for (int i = 0; i < size; i++){
         cout << ptr[i] << endl;
     }
+
+    delete[] ptr;
+    
     return 0;
 }
