@@ -16,8 +16,26 @@ errors and confirm the user's choice to exit the program.
 
 #include <iostream>
 #include <string>
+#include <limits> 
 
 using namespace std;
+
+void print_rules(){
+    cout << endl << "-------Please-choose-the-command-from-the-following-list----------" << endl;
+    cout << "sh • Convert seconds to hours (time must be entered in seconds) " << endl;
+    cout << "sm • Convert seconds to minutes (time must be entered in seconds) " << endl;
+    cout << "mh • Convert minutes to hours (time must be entered in minutes) " << endl;
+    cout << "hs • Convert hours to seconds (time must be entered in hours) " << endl;
+    cout << "ms • Convert minutes to seconds (time must be entered in seconds) " << endl;
+    cout << "hm • Convert hours to minutes (time must be entered in hours) " << endl;
+    cout << "q • Permits you to exit the program " << endl;
+    cout << endl << "Please, enter the command: ";
+}
+
+void clear_buffer(){
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
 
 int seconds_to_hours(int seconds){
     return seconds/3600;
@@ -45,8 +63,19 @@ int minutes_to_seconds(int minutes){
 
 int get_input(){
     int input;
-    cin >> input;
-    cin.ignore(1, '\n');
+    while (true){
+        cin >> input;
+        if (cin.fail()){
+            cout << "Incorrect input. Please, enter the integer number" << endl;
+            clear_buffer();
+        }
+        else
+        {
+            clear_buffer();
+            break;
+        }
+    }
+
     return input;
 }
 
@@ -56,46 +85,52 @@ int main()
     bool play = true;
     string command = "";
     do{
-        cout << "Please, choose the operation: sh, sm, mh, hs, hm, ms, q" << endl;
+        print_rules();
         getline(cin, command);
         if (command == "sh")
         {
-            cout << "sh" << endl;
-            cout << seconds_to_hours(get_input()) << endl;
+            cout << "Converting seconds to hours. Please, enter the amount: " << endl;
+            int input = get_input();
+            cout << input << " hours equal to " << seconds_to_hours(input) << " hours" << endl;
         }
         else if(command == "sm")
         {
-            cout << "sm" << endl;
-            cout << seconds_to_minutes(get_input()) << endl;
+            cout << "Converting seconds to minutes. Please, enter the amount: " << endl;
+            int input = get_input();
+            cout << input << " seconds equal to " << seconds_to_minutes(input) << " minutes" << endl;
         }
         else if(command == "mh")
         {
-            cout << "mh" << endl;
-            cout << minutes_to_hours(get_input()) << endl;
+            cout << "Converting minutes to hours. Please, enter the amount: " << endl;
+            int input = get_input();
+            cout << input << " minutes equal to " << minutes_to_hours(input) << " hours" << endl;
         }
         else if(command == "hm")
         {
-            cout << "hm" << endl;
-            cout << hours_to_minutes(get_input()) << endl;
+            cout << "Converting hours to minutes. Please, enter the amount: " << endl;
+            int input = get_input();
+            cout << input << " hours equal to " << hours_to_minutes(input) << " minutes" << endl;
         }
         else if(command == "hs")
         {
-            cout << "hs" << endl;
-            cout << hours_to_seconds(get_input()) << endl;
+            cout << "Converting hours to seconds. Please, enter the amount: " << endl;
+            int input = get_input();
+            cout << input << " hours equal to " << hours_to_seconds(input) << " seconds" << endl;
         }
         else if(command == "ms")
         {
-            cout << "ms" << endl;
-            cout << minutes_to_seconds(get_input()) << endl;
+            cout << "Converting minutes to seconds. Please, enter the amount: " << endl;
+            int input = get_input();
+            cout << input << " minutes equal to " << minutes_to_seconds(input) << " seconds" << endl;
         }
         else if(command == "q")
         {
-            cout << "q" << endl;
+            cout << "Thank you! See you next time!" << endl;
             play = false;
         }
         else
         {
-            cout << "Debug: " << command << endl;
+            cout << "Incorrect input. Please, enter the command using specified format." << endl;
         }
         command = "";
     }

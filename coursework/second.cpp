@@ -149,7 +149,7 @@ class game{         // class which unites all methods necessary to play a rps ga
 
                 while (true){
                     getline(cin, login);
-                    if (login.size() < 10)      // size of the login must not be more that 10 characters. It helps to avoid bufferoverflow
+                    if (login.size() < 11)      // size of the login must not be more than 10 characters. It helps to avoid bufferoverflow
                         break;
                     else
                         cout << "correct login format" << endl;
@@ -158,7 +158,7 @@ class game{         // class which unites all methods necessary to play a rps ga
                 cout << "Please, enter your password: " << endl;
 
                 getline(cin, password);
-                if (password.size() < 15){      // size of password must not be longer than 15 characters. It avoids bufferoverflow
+                if (password.size() < 16){      // size of password must not be longer than 15 characters. It avoids bufferoverflow
                     is_authorised = authorisation(login, password);
                     if (!is_authorised){
                         cout << "correct password" << endl;
