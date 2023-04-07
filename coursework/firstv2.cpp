@@ -1,19 +1,3 @@
-/*
-Task 1: Simple Time Calculator (40 marks)
-
-Write a program first.cpp file which builds a menu with the following options:
-• Convert seconds to hours (time must be entered in seconds)
-• Convert seconds to minutes (time must be entered in seconds)
-• Convert minutes to hours (time must be entered in minutes)
-• Convert hours to seconds (time must be entered in hours)
-• Convert minutes to seconds (time must be entered in seconds)
-• Permits you to exit the program
-
-The output for each of the options above must be written to screen in a decent
-format. Make sure you check for division by zero error, other possible software
-errors and confirm the user's choice to exit the program.
-*/
-
 #include <iostream> 
 #include <string> // using strings to store the command entered by user
 #include <limits> // using limits to clear the cin buffer to avoid unpredicted behaviour
@@ -25,13 +9,13 @@ void print_rules(){
     Function used to print the intstructions
     */
     cout << endl << "-------Please-choose-the-command-from-the-following-list----------" << endl;
-    cout << "sh • Convert seconds to hours (time must be entered in seconds) " << endl;
-    cout << "sm • Convert seconds to minutes (time must be entered in seconds) " << endl;
-    cout << "mh • Convert minutes to hours (time must be entered in minutes) " << endl;
-    cout << "hs • Convert hours to seconds (time must be entered in hours) " << endl;
-    cout << "ms • Convert minutes to seconds (time must be entered in seconds) " << endl;
-    cout << "hm • Convert hours to minutes (time must be entered in hours) " << endl;
-    cout << "q • Permits you to exit the program " << endl;
+    cout << "sh - Convert seconds to hours (time must be entered in seconds) " << endl;
+    cout << "sm - Convert seconds to minutes (time must be entered in seconds) " << endl;
+    cout << "mh - Convert minutes to hours (time must be entered in minutes) " << endl;
+    cout << "hs - Convert hours to seconds (time must be entered in hours) " << endl;
+    cout << "ms - Convert minutes to seconds (time must be entered in seconds) " << endl;
+    cout << "hm - Convert hours to minutes (time must be entered in hours) " << endl;
+    cout << "q - Permits you to exit the program " << endl;
     cout << endl << "Please, enter the command: ";
 }
 
